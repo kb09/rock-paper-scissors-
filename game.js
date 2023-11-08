@@ -1,12 +1,11 @@
 const choices = ["rock", "paper", "scissors"];
 
-let randomChoice = Math.floor(Math.random() * choices.length) // moving scope of variables to outside functions
-let playerSelection = prompt("Type rock, paper, or scissors"); //  moving scope of variables to outside functions
-
 
 
 function ComputerChoice(){
-  return choices[randomChoice];
+
+  let randomChoice = Math.floor(Math.random() * choices.length) 
+  return ("The computers choice was " + choices[randomChoice]);
 
 }
 console.log(ComputerChoice());
@@ -20,16 +19,28 @@ So, 1.5 becomes 1, 2.7 becomes 2, and so on.
 
 // player choice ( case sensitive and cannot input other options )
 function playerInput() {
-  playerSelection = playerSelection.toLowerCase();
+
+  let playerSelection = prompt("Type rock, paper, or scissors"); 
 
   while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
     playerSelection = prompt("You have entered an incorrect option. Please type rock, paper, or scissors.");
     playerSelection = playerSelection.toLowerCase();
   }
 
-  console.log(playerSelection);
-  return playerSelection;
+  console.log("Your choice was " + playerSelection);
+  return ("Your choice was " + playerSelection);
 }
 
-playerInput();
+// playerInput();
 
+function gameRound() {
+  let randomChoice = ComputerChoice();
+  let playerSelection = playerInput();
+
+  if (randomChoice.toLocaleLowerCase() === playerSelection.toLocaleLowerCase()) {
+    return "It's a tie!";
+  }
+  // write game code here 
+  console.log("It's a tie!");
+}
+gameRound();
