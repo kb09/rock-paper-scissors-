@@ -1,7 +1,11 @@
 const choices = ["rock", "paper", "scissors"];
 
+let randomChoice = Math.floor(Math.random() * choices.length) // moving scope of variables to outside functions
+let playerSelection = prompt("Type rock, paper, or scissors"); //  moving scope of variables to outside functions
+
+
+
 function ComputerChoice(){
-  let randomChoice = Math.floor(Math.random() * choices.length)
   return choices[randomChoice];
 
 }
@@ -16,7 +20,6 @@ So, 1.5 becomes 1, 2.7 becomes 2, and so on.
 
 // player choice ( case sensitive and cannot input other options )
 function playerInput() {
-  let playerSelection = prompt("Type rock, paper, or scissors");
   playerSelection = playerSelection.toLowerCase();
 
   while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
